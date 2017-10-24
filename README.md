@@ -1,2 +1,3 @@
-# bayes.vim
-Syntax Highlighter for my Bayes Script
+# Bayes VIM Highlighter
+
+Vim syntax highlighting for my bayes sampler script.
