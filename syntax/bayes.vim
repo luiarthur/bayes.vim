@@ -19,10 +19,11 @@ syn match       bayesComment /\#.*/
 syn region      bayesComment start=/#/ end=/$/ contains=bayesTodo display oneline
 syn keyword     bayesTodo FIXME NOTE TODO contained
 
-syn keyword bayesBlock   Data Likelihood Prior Proposal Init Options
-syn keyword bayesKeyword let assert def
-syn keyword bayesType    Vector Matrix Array
-syn keyword bayesType    Int Double
+syn keyword bayesBlock    Data Likelihood Prior Proposal Init Options
+syn keyword bayesKeyword  let assert def val new
+syn keyword bayesType     Vector Matrix Array
+syn keyword bayesType     Int Double
+syn keyword bayesFunction log sqrt mean sum exp
 
 " Numbers
 syn match bayesNumber /\<0\>/ " Just a bare 0
@@ -43,5 +44,6 @@ hi link bayesBlock    Include
 hi link bayesKeyword  Keyword
 hi link bayesType     Type
 hi link bayesNumber   Number
+hi link bayesFunction Function
 
 let b:current_syntax="bayes"
