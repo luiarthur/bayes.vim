@@ -1,0 +1,35 @@
+# This is a comment
+# TODO NOTE FIXME
+
+Data {
+  y: Vector<Double>  
+  X: Matrix<Double>
+
+  let (N,K) = X.dim
+  let I = eye(N)
+  assert(y.size == N)
+}
+
+Likelihood {
+  y ~ MvNormal(X\beta, \sigma^2 I)
+}
+
+Prior {
+  \beta ~ MvNormal(0, 100)
+}
+
+Proposal {
+}
+
+Init {
+}
+
+Options {
+  let bla = 10
+  let bla2 = 10.0
+  let bla3 = 10.0E3
+  let bla4 = 10E3
+  let bla5 = 10^3
+  let bla6 = 10.0^3
+  let bs = "ASDJkH"
+}

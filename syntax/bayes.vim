@@ -15,21 +15,33 @@ endif
 " Match case. (i.e. Upper/lower case matters.)
 syn case match
 
-" Comment
 syn match       bayesComment /\#.*/ 
 syn region      bayesComment start=/#/ end=/$/ contains=bayesTodo display oneline
 syn keyword     bayesTodo FIXME NOTE TODO contained
 
-" Blocks
-syn keyword bayesBlock Data Likelihood Prior Proposal Init Options
+syn keyword bayesBlock   Data Likelihood Prior Proposal Init Options
+syn keyword bayesKeyword let assert def
+syn keyword bayesType    Vector Matrix Array
+syn keyword bayesType    Int Double
 
-" Keywords
+" Numbers
+syn match bayesNumber /\<0\>/ " Just a bare 0
+syn match bayesNumber /\<[1-9]\d*\>/  " A multi-digit number
+syn match bayesNumber /\%(\<\d\+\.\d*\|\.\d\+\)\%([eE][-+]\=\d\+\)\=[fFdD]\=/ " exponential notation 1
+syn match bayesNumber /\<\d\+[eE][-+]\=\d\+[fFdD]\=\>/ " exponential notation 2
+syn match bayesNumber /\<\d\+\%([eE][-+]\=\d\+\)\=[fFdD]\>/ " exponential notation 3
 
-" Parameters
-syn match 
+" Strings
+syn match  bayesStringEmbeddedQuote /\\"/ contained
+syn region bayesString start=/"/ end=/"/ contains=bayesStringEmbeddedQuote
+hi link bayesString String
+hi link bayesStringEmbeddedQuote String
 
-hi def link bayesComment  Comment
-hi def link bayesTodo     Todo
-hi def link bayesBlock    Type
+hi link bayesComment  Comment
+hi link bayesTodo     Todo
+hi link bayesBlock    Include   
+hi link bayesKeyword  Keyword
+hi link bayesType     Type
+hi link bayesNumber   Number
 
 let b:current_syntax="bayes"
